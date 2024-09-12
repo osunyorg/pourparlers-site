@@ -13,8 +13,4 @@ items:
   target: "/studio/"
   kind: page
   children: []
-- title: Organisations
-  target: "/organisations/"
-  kind: page
-  children: []
 
