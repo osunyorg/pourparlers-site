@@ -9,8 +9,8 @@ items:
   target: "/projets/"
   kind: page
   children: []
-- title: Équipe
-  target: "/equipe/"
+- title: Studio
+  target: "/studio/"
   kind: page
   children: []
 - title: Organisations
