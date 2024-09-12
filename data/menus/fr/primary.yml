@@ -1,16 +1,16 @@
 ---
 title: Menu principal
 items:
-- title: Journal
-  target: "/journal/"
+- title: Studio
+  target: "/studio/"
   kind: page
   children: []
 - title: Réalisations
   target: "/realisations/"
   kind: page
   children: []
-- title: Studio
-  target: "/studio/"
+- title: Journal
+  target: "/journal/"
   kind: page
   children: []
 
