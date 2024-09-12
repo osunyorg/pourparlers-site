@@ -1,8 +1,8 @@
 ---
 title: Menu principal
 items:
-- title: Actualités
-  target: "/actualites/"
+- title: Journal
+  target: "/journal/"
   kind: page
   children: []
 - title: Réalisations
