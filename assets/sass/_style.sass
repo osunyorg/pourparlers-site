@@ -1,11 +1,14 @@
 // COLORS
 main
-    body:not(.projects__section, .posts__section) &
-        --color-text: var(--color-text-alt)
+    body:not(.projects__section, .posts__section, .posts__page, .projects__page) &
+        --color-text: var(--color-accent)
+        color: var(--color-text)
         background-color: $blue
-    .projects__section &
+    .projects__section &,
+    .projects__page &,
         background-color: $orange
-    .posts__section &
+    .posts__section &,
+    .posts__page &
         background-color: $green
 
 // Yellow hero
@@ -14,3 +17,26 @@ main
     .hero
         background: $yellow
         color: black
+
+// Home
+.page__home
+    main
+        padding-bottom: $block-space-y
+
+
+// Footer
+footer#document-footer
+    @include media-breakpoint-up(desktop)
+        ul:not(.dropdown-menu)
+            li + li
+                margin-top: 0
+        .footer-expertises
+            display: block
+            ul
+                display: flex
+                width: 100%
+                &:first-of-type
+                    justify-content: space-between
+                + ul
+                    justify-content: space-around
+                    margin-top: $spacing-6
