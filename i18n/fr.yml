@@ -6,3 +6,5 @@ commons:
       positioning: "Positionnement de marque"
       workshop: "Ateliers de réflexion et formation"
       studies: "Études thématiques"
+  contact:
+    email: Contact

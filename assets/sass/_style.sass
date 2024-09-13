@@ -28,8 +28,9 @@ main
 footer#document-footer
     @include media-breakpoint-up(desktop)
         ul:not(.dropdown-menu)
-            li + li
-                margin-top: 0
+            &, &.footer-social.site-links
+                li + li
+                    margin-top: 0
         .footer-expertises
             display: block
             ul
@@ -40,3 +41,18 @@ footer#document-footer
                 + ul
                     justify-content: space-around
                     margin-top: $spacing-6
+        .footer-social
+            display: flex
+            justify-content: space-between
+            gap: var(--column-width)
+            width: 100%
+            li
+                &:first-child::after
+                    display: none
+                &:nth-child(2)
+                    margin-left: auto
+                &:not(:first-child)
+                    flex-direction: row-reverse
+                    &::after
+                        margin-left: 0
+                        margin-right: $spacing-2
