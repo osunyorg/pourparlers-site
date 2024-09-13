@@ -1,4 +1,8 @@
 ---
 title: Liens sociaux
-items: []
+items:
+- title: Newsletter
+  target: "/"
+  kind: url
+  children: []
 
