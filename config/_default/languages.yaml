@@ -8,6 +8,12 @@ fr:
   languageName: Français
   params:
     social:
+      email: >-
+        bonjour@pourparlers.studio
+      linkedin: >-
+        https://www.linkedin.com/company/studio-pourparlers/
+      instagram: >-
+        https://www.instagram.com/url
   permalinks:
     posts: /journal/:year-:month-:day-:slug/
     projects: /realisations/:year-:slug/
