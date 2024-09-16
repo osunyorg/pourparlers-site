@@ -4,6 +4,10 @@ enableRobotsTXT: true
 removePathAccents: true
 params:
   summary:
-    position: hero
+    position: content
   search:
     active: false
+  image_sizes:
+    design_system:
+      lightbox:
+        disabled: true

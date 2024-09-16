@@ -24,10 +24,37 @@ main
         padding-bottom: $block-space-y
     .hero
         .lead
+            font-family: $h1-font-family
+            font-size: $h1-size
             text-transform: lowercase
-            b
-                @extend .sr-only
-
+            margin-top: $spacing-2
+            @include media-breakpoint-up(desktop)
+                font-size: $h1-size-desktop
+                line-height: 1
+                margin-top: $spacing-4
+        .content
+            align-items: baseline
+            column-gap: var(--grid-gutter)
+            padding-top: $spacing-6
+        .hero-text
+            margin-bottom: $spacing-2
+            margin-top: 0
+            @include media-breakpoint-up(desktop)
+                width: columns(5)
+            @include media-breakpoint-up(xxl)
+                width: columns(4)
+            h1
+                b
+                    @extend .sr-only
+        .hero-abstracts
+            flex: 1
+            display: flex
+            flex-direction: column-reverse
+        @include media-breakpoint-down(desktop)
+            padding-bottom: $spacing-4
+            .hero-abstracts
+                figure
+                    margin: 0
 
 // Footer
 footer#document-footer
@@ -64,29 +91,48 @@ footer#document-footer
 
 // Blocks
 .block-chapter--accent_background
-    @include media-breakpoint-up(desktop)
-        .block-title
-            display: flex
-            justify-content: flex-end
-            font-size: pxToRem(70)
     @include in-page-with-or-without-sidebar
         .chapter
             .text
-                font-size: pxToRem(49)
+                font-size: $block-chapter-layout-accent-font-size
                 line-height: 100%
                 padding-left: 0
                 padding-right: 0
                 b
                     font-family: $accent-font-family
                     text-transform: uppercase
+        &.block-class-image-left 
+            .text
+                padding-top: 0
+                padding-bottom: 0
+        &.block-class-image-right 
+            .text
+                padding-top: $spacing-2
     @include in-page-without-sidebar
         .text
             margin: auto
             text-align: center
     &.block-class-image-inside-text
+        .chapter
+            figure
+                margin-bottom: $spacing-2
+                img
+                    height: pxToRem(30)
+                    width: auto
+            @include media-breakpoint-up(desktop)
+                flex-direction: row
+                align-items: baseline
+                gap: space(3)
         .text b
             @extend .sr-only
     &.block-class-image-left,
     &.block-class-image-right
         .block-title
             @extend .sr-only
+    &.block-class-image-left
+        figure
+            margin-left: calc(var(--column-width) + (var(--column-width) / 2))
+    &.block-class-image-right
+        figure
+            margin-left: auto
+            margin-right: var(--column-width)

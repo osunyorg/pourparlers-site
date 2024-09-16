@@ -1,0 +1,48 @@
+{{ $direction := "" }}
+{{ $subtitle := .Params.subtitle }}
+{{ $description := .Params.description }}
+{{ if .Params.image }}
+  {{ $direction = partial "GetImageDirection" .Params.image }}
+{{ end }}
+
+{{ $summary := .Params.summary | safeHTML }}
+{{ $subtitle_is_summary := false }}
+
+{{ $title_attribute := "" | safeHTMLAttr }}
+{{ if site.Params.search.active }}
+  {{ $title_attribute = "data-pagefind-weight='10'" | safeHTMLAttr }}
+{{ end }}
+
+{{ if not $subtitle }}
+  {{ if $summary }}
+    {{ $subtitle = $summary }}
+    {{ $subtitle_is_summary = true }}
+  {{ end }}
+{{ end }}
+
+<header class="hero {{ if .Params.image }}hero--with-image hero--image-{{- $direction }}{{ end }}">
+  <div class="container">
+    <div class="content">
+      <div class="hero-text">
+        <h1 {{ $title_attribute }}>{{ partial "PrepareHTML" .Params.header_text }}</h1>
+      </div>
+      <div class="hero-abstracts">
+        {{ if $subtitle }}
+          <p {{ if $subtitle_is_summary }} class="lead" {{ end }}>{{ partial "PrepareHTML" $subtitle }}</p>
+        {{ end }}
+        {{ if $description }}
+          <p>{{ partial "PrepareHTML" .description }}</p>
+        {{ end }}
+        {{ if .Params.image }}
+          <!-- TODO Peut etre aligner la stucture des données avec les autres cas d'images -->
+          {{ partial "commons/image-figure.html" (dict
+            "image"    .Params.image
+            "sizes"    ( .Params.sizes | default site.Params.image_sizes.design_system.hero )
+            "lazy"      false
+            )
+          }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</header>
