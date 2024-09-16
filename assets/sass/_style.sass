@@ -22,6 +22,11 @@ main
 .page__home
     main
         padding-bottom: $block-space-y
+    .hero
+        .lead
+            text-transform: lowercase
+            b
+                @extend .sr-only
 
 
 // Footer
@@ -56,3 +61,32 @@ footer#document-footer
                     &::after
                         margin-left: 0
                         margin-right: $spacing-2
+
+// Blocks
+.block-chapter--accent_background
+    @include media-breakpoint-up(desktop)
+        .block-title
+            display: flex
+            justify-content: flex-end
+            font-size: pxToRem(70)
+    @include in-page-with-or-without-sidebar
+        .chapter
+            .text
+                font-size: pxToRem(49)
+                line-height: 100%
+                padding-left: 0
+                padding-right: 0
+                b
+                    font-family: $accent-font-family
+                    text-transform: uppercase
+    @include in-page-without-sidebar
+        .text
+            margin: auto
+            text-align: center
+    &.block-class-image-inside-text
+        .text b
+            @extend .sr-only
+    &.block-class-image-left,
+    &.block-class-image-right
+        .block-title
+            @extend .sr-only
