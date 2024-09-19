@@ -5,4 +5,8 @@ items:
   target: "/"
   kind: url
   children: []
+- title: Contact
+  target: mailto:bonjour@pourparlers.studio
+  kind: url
+  children: []
 
