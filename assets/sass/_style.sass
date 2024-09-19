@@ -170,6 +170,14 @@ footer#document-footer
     &.block-class-image-right
         .block-title
             @extend .sr-only
+        .text a
+            text-transform: lowercase
+            &::after
+                display: none
+            @include media-breakpoint-down(desktop)
+                display: block
+                margin-top: space()
+                width: fit-content
     &.block-class-image-left
         figure
             margin-left: calc(var(--column-width) + (var(--column-width) / 2))
@@ -322,10 +330,15 @@ footer#document-footer
                 background:
                     image: url('/assets/images/decorations/underline-1.png')
                     position: center
-                    repeat: no-repeat
-                    size: contain
+                    size: cover
                 position: absolute
                 top: -6px
+    .chapter
+        font-family: $heading-font-family
+        line-height: 140%
+        @include media-breakpoint-down(desktop)
+            font-size: pxToRem(17)
+            line-height: 150%
 
 // Navigation
 .posts-navigation,

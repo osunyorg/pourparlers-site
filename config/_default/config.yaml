@@ -17,3 +17,6 @@ params:
   posts:
     index:
       layout: grid
+      options:
+        summary: false
+        categories: false
