@@ -99,6 +99,10 @@ body:not(.page__home, .projects__section, .projects__page)
 
 // Footer
 footer#document-footer
+    ul:not(.dropdown-menu)
+        &, &.footer-social.site-links
+            li + li
+                margin-top: 0
     .footer-banner
         display: flex
         justify-content: center
@@ -110,10 +114,6 @@ footer#document-footer
             gap: var(--grid-gutter)
             a
                 @include meta
-        ul:not(.dropdown-menu)
-            &, &.footer-social.site-links
-                li + li
-                    margin-top: 0
     .calligram
         &.portrait
             max-height: pxToRem(200)
