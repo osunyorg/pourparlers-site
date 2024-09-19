@@ -3,16 +3,6 @@ paginate: 18
 enableRobotsTXT: true
 removePathAccents: true
 params:
-  footer:
-    images:
-      - url: "/assets/images/calligrammes/calligramme-1.svg"
-        orientation: "landscape"
-      - url: "/assets/images/calligrammes/calligramme-2.svg"
-        orientation: "portrait"
-      - url: "/assets/images/calligrammes/calligramme-3.svg"
-        orientation: "landscape"
-      - url: "/assets/images/calligrammes/calligramme-4.svg"
-        orientation: "landscape"
   summary:
     position: content
   search:
