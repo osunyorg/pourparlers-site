@@ -18,6 +18,13 @@ main
         background: $yellow
         color: black
 
+// Breadcrumb
+.persons__section,
+.posts__section,
+.projects__section
+    nav.breadcrumb-nav
+        @extend .sr-only
+
 // Home
 .page__home
     main
@@ -55,6 +62,14 @@ main
             .hero-abstracts
                 figure
                     margin: 0
+
+// Hero
+body:not(.page__home, .projects__section)
+    .hero
+        .hero-text
+            width: 100%
+            h1
+                text-align: center
 
 // Footer
 footer#document-footer
@@ -136,3 +151,36 @@ footer#document-footer
         figure
             margin-left: auto
             margin-right: var(--column-width)
+
+// Studio
+.persons__section
+    .block-gallery--grid
+        padding-top: var(--header-height) !important
+        min-height: unset
+        padding-bottom: 4rem
+        margin-bottom: 4rem
+        .gallery
+            display: flex
+            justify-content: space-between
+        figure
+            max-width: pxToRem(192)
+            mix-blend-mode: multiply
+    @include media-breakpoint-down(desktop)
+        .block-gallery--grid 
+            padding: 0
+            figure
+                max-width: 30vw
+        .block-chapter--accent_background
+            .text
+                text-align: center
+    @include media-breakpoint-up(desktop)
+        main
+            padding-top: var(--header-height)
+        .hero
+            position: absolute
+            padding: 0 !important
+            margin: 0 !important
+            .hero-text
+                margin-top: var(--header-height)
+                padding-top: $spacing-4
+        
