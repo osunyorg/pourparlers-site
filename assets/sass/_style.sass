@@ -11,6 +11,11 @@ main
     .posts__page &
         background-color: $green
 
+body:not(.page__home) 
+    .media,
+    figure
+        mix-blend-mode: multiply
+
 // Yellow hero
 .page__home,
 .posts__page
@@ -164,7 +169,6 @@ footer#document-footer
             justify-content: space-between
         figure
             max-width: pxToRem(192)
-            mix-blend-mode: multiply
     @include media-breakpoint-down(desktop)
         .block-gallery--grid 
             padding: 0
@@ -183,4 +187,53 @@ footer#document-footer
             .hero-text
                 margin-top: var(--header-height)
                 padding-top: $spacing-4
-        
+
+// Projects
+.projects__section
+    main
+        margin-top: var(--header-height)
+        .container
+            max-width: unset
+            width: auto
+        @include media-breakpoint-up(xl)
+            display: flex
+            gap: var(--grid-gutter)
+            .hero
+                flex: 1
+                > .container
+                    padding-right: 0
+                .hero-text
+                    margin-top: 0
+                    width: columns(4)
+                    @include media-breakpoint-down(xxl)
+                        h1
+                            font-size: pxToRem(75)
+            .document-content
+                flex: 1
+                padding-top: $spacing-6
+                > .container
+                    padding-left: 0
+                .project
+                    flex-direction: row
+                    &-content
+                        width: columns(5)
+                    .media
+                        width: columns(3)
+.projects
+    .project
+        &-description
+            @include meta
+        .media img
+            aspect-ratio: 320/399
+    @include media-breakpoint-down(desktop)
+        .project-content .project-title
+            @include h2
+    @include media-breakpoint-up(desktop)
+        &.projects--list
+            .project        
+                margin-bottom: $spacing-4
+                padding-bottom: $spacing-4
+            .project-description
+                display: flex
+                flex-direction: column
+                justify-content: space-between

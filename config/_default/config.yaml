@@ -11,3 +11,9 @@ params:
     design_system:
       lightbox:
         disabled: true
+  projects:
+    index:
+      layout: list
+  posts:
+    index:
+      layout: grid
