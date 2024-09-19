@@ -69,7 +69,7 @@ body:not(.page__home)
                     margin: 0
 
 // Hero
-body:not(.page__home, .projects__section)
+body:not(.page__home, .projects__section, .projects__page)
     .hero
         .hero-text
             width: 100%
@@ -195,6 +195,10 @@ footer#document-footer
         .container
             max-width: unset
             width: auto
+        @include media-breakpoint-up(desktop)
+            .document-content
+                .project
+                    flex-direction: row
         @include media-breakpoint-up(xl)
             display: flex
             gap: var(--grid-gutter)
@@ -214,7 +218,6 @@ footer#document-footer
                 > .container
                     padding-left: 0
                 .project
-                    flex-direction: row
                     &-content
                         width: columns(5)
                     .media
@@ -237,3 +240,30 @@ footer#document-footer
                 display: flex
                 flex-direction: column
                 justify-content: space-between
+
+// Posts
+.posts
+    .post
+        .media img
+            aspect-ratio: 448/312
+        time
+            color: var(--color-text)
+.posts__page
+    .hero 
+        @include media-breakpoint-up(desktop)
+            .content
+                flex-direction: column
+                max-width: columns(8)
+                padding-top: $spacing-1
+                &,
+                & > *
+                    margin: auto
+                figure
+                    margin-top: $spacing-4
+                    width: columns(6)
+                    img
+                        aspect-ratio: 704/490
+                        object-fit: cover
+            .breadcrumb
+                padding-right: 0
+                justify-content: center
