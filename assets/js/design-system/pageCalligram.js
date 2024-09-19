@@ -22,7 +22,7 @@ class PageCalligram {
     }
     setCalligram () {
         this.calligram.src = this.image.url;
-        this.calligram.className += this.image.orientation;
+        this.calligram.className +=  ' ' + this.image.orientation;
     }
 }
 
