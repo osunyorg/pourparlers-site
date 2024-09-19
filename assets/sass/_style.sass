@@ -30,6 +30,29 @@ body:not(.page__home)
     nav.breadcrumb-nav
         @extend .sr-only
 
+// Header
+header#document-header
+    .menu
+        ul li 
+            padding: $spacing-1 $spacing-2
+            a
+                padding: 0
+            &:last-child
+                padding-right: 0
+        .active
+            position: relative
+            &::after
+                content: ''
+                bottom: -6px
+                background:
+                    image: url('/assets/images/decorations/menu-underline.png')
+                    size: cover
+                    position: center
+                height: 12px
+                left: 0
+                position: absolute
+                width: 100%
+
 // Home
 .page__home
     main
@@ -40,10 +63,14 @@ body:not(.page__home)
             font-size: $h1-size
             text-transform: lowercase
             margin-top: $spacing-2
+        .lead,
+        h1
             @include media-breakpoint-up(desktop)
                 font-size: $h1-size-desktop
                 line-height: 1
                 margin-top: $spacing-4
+            @include media-breakpoint-up(xxl)
+                font-size: $h1-size-xxl
         .content
             align-items: baseline
             column-gap: var(--grid-gutter)
@@ -51,13 +78,7 @@ body:not(.page__home)
         .hero-text
             margin-bottom: $spacing-2
             margin-top: 0
-            @include media-breakpoint-up(desktop)
-                width: columns(5)
-            @include media-breakpoint-up(xxl)
-                width: columns(4)
-            h1
-                b
-                    @extend .sr-only
+            width: auto
         .hero-abstracts
             flex: 1
             display: flex
@@ -160,26 +181,51 @@ footer#document-footer
 // Studio
 .persons__section
     .block-gallery--grid
-        padding-top: var(--header-height) !important
+        margin-bottom: 4rem
         min-height: unset
         padding-bottom: 4rem
-        margin-bottom: 4rem
+        padding-top: var(--header-height) !important
         .gallery
             display: flex
             justify-content: space-between
         figure
             max-width: pxToRem(192)
+    .hero
+        h1
+            position: relative
+            &::after
+                content: ''
+                background:
+                    image: url('/assets/images/decorations/studio-line.png')
+                    position: center
+                    repeat: no-repeat
+                    size: contain
+                height: pxToRem(147)
+                position: absolute
+                width: pxToRem(16)
+                left: 50%
+                transform: translateX(-50%)
+                top: 100%
     @include media-breakpoint-down(desktop)
+        .hero
+            padding-bottom: 0
+            margin-bottom: space(9)
+            h1::after
+                height: 152px
+                top: 110%
         .block-gallery--grid 
-            padding: 0
+            padding-bottom: 0
+            padding-top: 0 !important
             figure
-                max-width: 30vw
+                max-width: columns(4)
         .block-chapter--accent_background
             .text
                 text-align: center
     @include media-breakpoint-up(desktop)
         main
             padding-top: var(--header-height)
+            .block-gallery--grid
+                padding-bottom: 0
         .hero
             position: absolute
             padding: 0 !important
@@ -246,8 +292,6 @@ footer#document-footer
     .post
         .media img
             aspect-ratio: 448/312
-        time
-            color: var(--color-text)
 .posts__page
     .hero 
         @include media-breakpoint-up(desktop)
@@ -267,3 +311,25 @@ footer#document-footer
             .breadcrumb
                 padding-right: 0
                 justify-content: center
+    .post-infos 
+        > li:not(:first-child)
+            border: none
+            position: relative
+            &::before
+                content: ''
+                height: 12px
+                width: 100%
+                background:
+                    image: url('/assets/images/decorations/underline-1.png')
+                    position: center
+                    repeat: no-repeat
+                    size: contain
+                position: absolute
+                top: -6px
+
+// Navigation
+.posts-navigation,
+.siblings-navigation
+    ul 
+        a:hover
+            color: var(--color-text) !important
