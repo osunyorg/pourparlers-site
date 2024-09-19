@@ -10,6 +10,28 @@
   </ul>
 </ul>
 </div>
-<div class="container footer-social">
-  {{ partial "footer/social.html" }}
+<div class="container footer-banner">
+  {{ $menu := partial "GetMenu" "social" }}
+  {{ if $menu }}
+    {{ partial "commons/menu.html"
+      (dict
+        "kind"        "social"
+        "level"       1
+        "class"       "nav-social"
+    )}}
+  {{ end }}
+
+  {{ $images := site.Params.footer.images }}
+  {{ $shuffledImages := shuffle $images }}
+  {{ $calligram := index $shuffledImages 0 }}
+  <img class="calligram {{ $calligram.orientation }}" src="{{ $calligram.url }}" alt="" />
+
+  {{ with (or site.Params.social site.Data.website.social) }}
+    {{ $site_social_links := . }}
+    {{ if $site_social_links }}
+      <ul class="footer-social site-links">
+        {{ partial "commons/socials" . }}
+      </ul>
+    {{ end }}
+{{ end }}
 </div>
