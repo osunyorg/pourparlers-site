@@ -80,14 +80,58 @@ header#document-header
             margin-top: 0
             width: auto
         .hero-abstracts
-            flex: 1
             display: flex
+            flex: 1
             flex-direction: column-reverse
         @include media-breakpoint-down(desktop)
             padding-bottom: $spacing-4
             .hero-abstracts
                 figure
                     margin: 0
+    .document-content
+        .block-chapter
+            background:
+            .rich-text a
+                position: relative
+                text-decoration: none
+                &::before
+                    content: ''
+                    background:
+                        image: url('/assets/images/decorations/line_02_white.png')
+                        position: center
+                        repeat: no-repeat
+                        size: cover
+                    height: pxToRem(16)
+                    position: absolute
+                    width: 100%
+                    left: 0
+                    bottom: -8px
+        .block.block-image
+            margin-top: 0
+            mix-blend-mode: multiply
+            position: absolute
+            + .block-chapter
+                margin-top: 0
+            .block-content
+                width: columns(9)
+            @include media-breakpoint-down(desktop)
+                top: space(78)
+                .block-content
+                    margin: auto
+            @include media-breakpoint-up(desktop)
+                left: 0
+                top: space(60)
+                z-index: 0
+                .block-content
+                    padding-left: 0
+                    width: columns(5)
+        .blocks > *:not(.block-image)
+            position: relative
+            z-index: 1
+    @include media-breakpoint-down(desktop)
+        .block + .block-chapter
+            padding-bottom: 0
+            padding-top: 0
 
 // Hero
 body:not(.page__home, .projects__section, .projects__page)
@@ -114,23 +158,7 @@ footer#document-footer
             gap: var(--grid-gutter)
             a
                 @include meta
-    .calligram
-        &.portrait
-            max-height: pxToRem(200)
-        &.landscape
-            max-width: columns(8)
-    @include media-breakpoint-up(desktop)
-        .footer-expertises
-            display: block
-            ul
-                display: flex
-                width: 100%
-                &:first-of-type
-                    justify-content: space-between
-                + ul
-                    justify-content: space-around
-                    margin-top: $spacing-6
-        .footer-banner
+        @include media-breakpoint-up(desktop)
             ul
                 position: absolute
                 a
@@ -146,18 +174,120 @@ footer#document-footer
                     &::after
                         margin-left: 0
                         margin-right: $spacing-2
-        .calligram.landscape
-            max-width: columns(3)
-    @include media-breakpoint-down(desktop)
-        .footer-banner
+        @include media-breakpoint-down(desktop)
             gap: $spacing-4
             flex-direction: column
             align-items: center
-        .footer-social
-            justify-content: space-between
-            width: 100%
-        .calligram
-            order: -1
+            .footer-social
+                justify-content: space-between
+                width: 100%
+            .calligram
+                order: -1
+    .calligram
+        &.portrait
+            max-height: pxToRem(200)
+        &.landscape
+            max-width: columns(9)
+            @include media-breakpoint-up(md)
+                max-width: columns(3)
+            @include media-breakpoint-up(xl)
+                max-width: columns(4)
+    @include media-breakpoint-down(desktop)
+        .footer-expertises
+            font-size: $body-size-desktop
+            li
+                + li
+                    margin-top: space(25) !important
+                &:nth-child(odd)
+                    width: columns(8)
+                &:nth-child(even)
+                    text-align: right
+                    margin-left: auto
+                    width: columns(6)
+                &::before,
+                &::after
+                    background:
+                        image: url('/assets/images/decorations/line_04_black.png')
+                        position: center
+                        repeat: no-repeat
+                        size: cover
+                    height: pxToRem(20)
+                    position: absolute
+                    width: pxToRem(150)
+                &:nth-child(odd)
+                    &::after
+                        content: ''
+                        left: var(--column-width)
+                        top: space(18)
+                        transform: rotate(34.51deg)
+                &:nth-child(even)
+                    &::after
+                        content: ''
+                        right: 0
+                        top: space(24)
+                        transform: rotate(-34.51deg)
+            ul:nth-child(2)
+                display: flex
+                flex-direction: column-reverse
+                li:nth-child(even)
+                    width: columns(7)
+                li:first-child
+                    margin-top: space(25)
+                    max-width: 17ch
+                    &::after
+                        content: none
+
+    .footer-expertises
+        li
+            position: relative
+        @include media-breakpoint-up(desktop)
+            display: block
+            ul
+                display: flex
+                width: 100%
+                li
+                    max-width: 21ch
+                    text-align: center
+                &:first-of-type
+                    justify-content: space-between
+                    li
+                        &::before,
+                        &::after
+                            background:
+                                image: url('/assets/images/decorations/line_04_black.png')
+                                position: center
+                                repeat: no-repeat
+                                size: cover
+                            height: pxToRem(19)
+                            position: absolute
+                            width: columns(2)
+                            top: space(18)
+                            @include media-breakpoint-up(xxl)
+                                top: space(23)
+                        &:not(:first-child)
+                            &::before
+                                content: ''
+                                right: calc(100% - #{$spacing-3})
+                                transform: rotate(-34.51deg)
+                                @include media-breakpoint-up(xxl)
+                                    right: 100%
+                        &:not(:last-child)
+                            &::after
+                                content: ''
+                                left: calc(100% - #{$spacing-3})
+                                transform: rotate(34.51deg)
+                                @include media-breakpoint-up(xxl)
+                                    left: 100%
+                        &:first-child::after
+                            left: offset(1)
+                        &:last-child::before
+                            right: offset(1)
+                + ul
+                    justify-content: space-around
+                    margin-top: space(25)
+                    @include media-breakpoint-up(xxl)
+                        margin-top: space(35)
+
 
 // Blocks
 .block-chapter--accent_background
@@ -193,6 +323,8 @@ footer#document-footer
                 flex-direction: row
                 align-items: baseline
                 gap: space(3)
+                .text 
+                    padding-bottom: $spacing-2 !important
         .text b
             @extend .sr-only
     &.block-class-image-left,
