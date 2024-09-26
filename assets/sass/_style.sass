@@ -13,7 +13,8 @@
 .posts__page
     footer .calligram svg
         fill: $green
-.page__home
+.page__home,
+.persons__section
     main
         --color-text: var(--color-accent)
         color: var(--color-text)
@@ -71,15 +72,40 @@ header#document-header
             position: relative
             &::after
                 content: ''
-                bottom: -8px
                 background:
                     image: url('/assets/images/decorations/line_04_black.png')
                     size: cover
                     position: center
                 height: pxToRem(18)
-                left: 0
-                position: absolute
                 width: 100%
+                @include media-breakpoint-up(desktop)
+                    bottom: -8px
+                    left: 0
+                    position: absolute
+    @include media-breakpoint-down(desktop)
+        .has-menu-opened &
+            height: 100%
+            > nav,
+            .container,
+            .menu.is-opened
+                height: 100%
+                ul 
+                    height: calc(100% - #{$header-height})
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    li
+                        border: none
+                        padding-left: 0
+                        padding-right: 0
+                        a
+                            display: flex
+                            align-items: center
+                            font-family: $body-font-family
+                            font-size: $h1-size
+                            &.active::after
+                                flex: 1
+                                margin-left: $spacing-3
 
 // Home
 .page__home
