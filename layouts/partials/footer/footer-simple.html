@@ -21,7 +21,9 @@
     )}}
   {{ end }}
   
-  <img class="calligram" alt="">
+  <div class="calligram">
+    <img alt="">
+  </div>
 
   {{ with (or site.Params.social site.Data.website.social) }}
     {{ $site_social_links := . }}

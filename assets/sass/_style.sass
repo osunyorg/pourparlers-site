@@ -4,12 +4,25 @@ main
         --color-text: var(--color-accent)
         color: var(--color-text)
         background-color: $blue
-    .projects__section &,
-    .projects__page &,
+.projects__section,
+.projects__page
+    main
         background-color: $orange
-    .posts__section &,
-    .posts__page &
+    footer .calligram svg
+        fill: $orange
+.posts__section,
+.posts__page,
+    main
         background-color: $green
+.posts__section,
+.posts__page
+    footer .calligram svg
+        fill: $green
+
+.page__home,
+.posts__page
+    footer .calligram svg
+        fill: $blue
 
 body:not(.page__home) 
     .media,
@@ -140,6 +153,11 @@ body:not(.page__home, .projects__section, .projects__page)
             width: 100%
             h1
                 text-align: center
+.hero
+    .breadcrumb-nav
+        .breadcrumb
+            padding-right: 0
+            justify-content: center
 
 // Footer
 footer#document-footer
@@ -184,14 +202,21 @@ footer#document-footer
             .calligram
                 order: -1
     .calligram
+        img
+            width: 100%
         &.portrait
-            max-height: pxToRem(200)
+            &, img
+                max-height: pxToRem(200)
+                @include media-breakpoint-down(desktop)
+                    width: 50%
         &.landscape
             max-width: columns(9)
             @include media-breakpoint-up(md)
                 max-width: columns(3)
             @include media-breakpoint-up(xl)
                 max-width: columns(4)
+            @include media-breakpoint-down(desktop)
+                width: 100%
     @include media-breakpoint-down(desktop)
         .footer-expertises
             font-size: $body-size-desktop
@@ -477,9 +502,6 @@ footer#document-footer
                     img
                         aspect-ratio: 704/490
                         object-fit: cover
-            .breadcrumb
-                padding-right: 0
-                justify-content: center
     .post-infos 
         > li:not(:first-child)
             border: none
