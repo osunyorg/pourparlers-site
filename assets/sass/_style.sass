@@ -158,10 +158,15 @@ body:not(.page__home, .projects__section, .projects__page)
         .breadcrumb
             padding-right: 0
             justify-content: center
-    body:not(.page__home, .projects__section, .posts__page) &
-        .content
-            .hero-text
-                margin-top: $spacing-6
+    @include media-breakpoint-down(desktop)
+        .posts__section &,
+        .projects__section &
+            margin-bottom: 0
+    @include media-breakpoint-up(desktop)
+        body:not(.page__home, .projects__section, .posts__page) &
+            .content
+                .hero-text
+                    margin-top: $spacing-6
 
 // Footer
 footer#document-footer
@@ -388,6 +393,9 @@ footer#document-footer
             justify-content: space-between
         figure
             max-width: pxToRem(192)
+            img
+                aspect-ratio: 1
+                object-fit: cover
     .hero
         h1
             position: relative
@@ -436,6 +444,10 @@ footer#document-footer
 .projects__section
     main
         margin-top: var(--header-height)
+        .hero
+            .content
+                .hero-text
+                    margin-top: 0
         .container
             max-width: unset
             width: auto
@@ -471,7 +483,6 @@ footer#document-footer
                 > .container
                     padding-right: 0
                 .hero-text
-                    margin-top: 0
                     width: columns(4)
                     @include media-breakpoint-down(xxl)
                         h1
