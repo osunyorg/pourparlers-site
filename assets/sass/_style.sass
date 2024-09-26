@@ -158,6 +158,10 @@ body:not(.page__home, .projects__section, .projects__page)
         .breadcrumb
             padding-right: 0
             justify-content: center
+    body:not(.page__home, .projects__section, .posts__page) &
+        .content
+            .hero-text
+                margin-top: $spacing-6
 
 // Footer
 footer#document-footer
@@ -435,6 +439,26 @@ footer#document-footer
         .container
             max-width: unset
             width: auto
+        .projects
+            .project
+                border-bottom: 0
+                &::after
+                    background:
+                        image: url('/assets/images/decorations/line_04_black.png')
+                        position: left
+                        size: cover
+                    content: ''
+                    height: pxToRem(19)
+                    width: 100%
+                    bottom: -9.5px
+                    position: absolute
+                @include media-breakpoint-down(desktop)
+                    + .project
+                        margin-top: $spacing-5
+                    &::after
+                        background-position: right
+                        bottom: calc(#{-($spacing-5)} / 2 - 6px)
+                        height: pxToRem(22)
         @include media-breakpoint-up(desktop)
             .document-content
                 .project
@@ -497,7 +521,35 @@ footer#document-footer
     .post
         .media img
             aspect-ratio: 448/312
+        .post-content
+            flex: 1
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+        .post-meta
+            display: flex
+            align-items: center
+            gap: $spacing-2
+            &::after
+                content: ''
+                background:
+                    image: url('/assets/images/decorations/line_04_black.png')
+                    position: right
+                    repeat: no-repeat
+                    size: 100%
+                height: pxToRem(18)
+                flex: 1
+                
 .posts__page
+    @include media-breakpoint-down(desktop)
+        header,
+        .hero figure
+            margin-bottom: var(--grid-gutter)
+        .document-content
+            .post-sidebar
+                margin-bottom: 0
+                + .block-summary
+                    margin-top: $spacing-3
     .hero 
         @include media-breakpoint-up(desktop)
             .content
@@ -519,14 +571,14 @@ footer#document-footer
             position: relative
             &::before
                 content: ''
-                height: 12px
-                width: 100%
                 background:
-                    image: url('/assets/images/decorations/underline-1.png')
+                    image: url('/assets/images/decorations/line_04_black.png')
                     position: center
                     size: cover
+                height: 18px
                 position: absolute
-                top: -6px
+                top: -9px
+                width: 100%
     .chapter
         font-family: $heading-font-family
         line-height: 140%
@@ -537,6 +589,10 @@ footer#document-footer
 // Navigation
 .posts-navigation,
 .siblings-navigation
+    border: 0
     ul 
-        a:hover
-            color: var(--color-text) !important
+        a
+            &, *:not(span)
+                font-size: 0
+            &:hover
+                color: var(--color-text) !important
