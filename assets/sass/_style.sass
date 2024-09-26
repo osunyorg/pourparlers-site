@@ -56,12 +56,12 @@ header#document-header
             position: relative
             &::after
                 content: ''
-                bottom: -6px
+                bottom: -8px
                 background:
-                    image: url('/assets/images/decorations/menu-underline.png')
+                    image: url('/assets/images/decorations/line_04_black.png')
                     size: cover
                     position: center
-                height: 12px
+                height: pxToRem(18)
                 left: 0
                 position: absolute
                 width: 100%
@@ -458,8 +458,19 @@ footer#document-footer
                 > .container
                     padding-left: 0
                 .project
-                    &-content
+                    .project-content
                         width: columns(5)
+                        a
+                            pointer-events: none
+                        .project-title::after
+                            display: none
+                    &:hover
+                        .project-content
+                            .project-title 
+                                a
+                                    color: inherit
+                                &::after
+                                    display: none
                     .media
                         width: columns(3)
 .projects
