@@ -1,9 +1,4 @@
 // COLORS
-main
-    body:not(.projects__section, .posts__section, .posts__page, .projects__page) &
-        --color-text: var(--color-accent)
-        color: var(--color-text)
-        background-color: $blue
 .projects__section,
 .projects__page
     main
@@ -18,9 +13,11 @@ main
 .posts__page
     footer .calligram svg
         fill: $green
-
-.page__home,
-.posts__page
+.page__home
+    main
+        --color-text: var(--color-accent)
+        color: var(--color-text)
+        background-color: $blue
     footer .calligram svg
         fill: $blue
 
@@ -29,6 +26,23 @@ body:not(.page__home)
     figure
         mix-blend-mode: multiply
 
+// Layout
+.pages__section
+    .blocks
+        font-family: $heading-font-family
+        line-height: $body-normal-line-height-desktop
+        @include media-breakpoint-down(desktop)
+            font-size: $body-normal-font-size
+            line-height: $body-normal-line-height
+    &.full-width
+        .document-content
+            .blocks
+                @include media-breakpoint-up(desktop)
+                    .text, 
+                    .block-contact .informations
+                        margin-left: auto
+                        margin-right: auto
+                        width: columns(7)
 // Yellow hero
 .page__home,
 .posts__page
@@ -39,7 +53,8 @@ body:not(.page__home)
 // Breadcrumb
 .persons__section,
 .posts__section,
-.projects__section
+.projects__section,
+.pages__section
     nav.breadcrumb-nav
         @extend .sr-only
 
@@ -592,10 +607,10 @@ footer#document-footer
                 width: 100%
     .chapter
         font-family: $heading-font-family
-        line-height: 140%
+        line-height: $body-normal-line-height-desktop
         @include media-breakpoint-down(desktop)
-            font-size: pxToRem(17)
-            line-height: 150%
+            font-size: $body-normal-font-size
+            line-height: $body-normal-line-height
 
 // Navigation
 .posts-navigation,
