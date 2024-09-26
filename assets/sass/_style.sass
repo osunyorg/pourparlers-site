@@ -82,6 +82,21 @@ header#document-header
                     bottom: -8px
                     left: 0
                     position: absolute
+    > nav
+        .header-button
+            span:first-child
+                @extend .sr-only
+            span:last-child::before
+                content: '' !important
+                background:
+                    image: url('/assets/images/decorations/menu.png')
+                    size: contain
+                    position: center
+                width: pxToRem(41)
+                height: pxToRem(39)
+            &[aria-expanded="true"]
+                span:last-child::before
+                    background-image: url('/assets/images/decorations/close.png')
     @include media-breakpoint-down(desktop)
         .has-menu-opened &
             height: 100%
@@ -195,15 +210,15 @@ body:not(.page__home, .projects__section, .projects__page)
             h1
                 text-align: center
 .hero
-    .breadcrumb-nav
-        .breadcrumb
-            padding-right: 0
-            justify-content: center
     @include media-breakpoint-down(desktop)
         .posts__section &,
         .projects__section &
             margin-bottom: 0
     @include media-breakpoint-up(desktop)
+        .breadcrumb-nav
+            .breadcrumb
+                padding-right: 0
+                justify-content: center
         body:not(.page__home, .projects__section, .posts__page) &
             .content
                 .hero-text
