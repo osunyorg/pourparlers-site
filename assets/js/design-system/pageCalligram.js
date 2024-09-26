@@ -21,6 +21,7 @@ class PageCalligram {
         ];
         
         this.listen();
+        this.resize(); 
     }
 
     isMobileOrTablet () {
@@ -57,6 +58,17 @@ class PageCalligram {
     setImage () {
         this.imageElement.src = this.image.url;
         this.calligram.className +=  ' ' + this.image.orientation;
+    }
+
+    resize () {
+        window.addEventListener('resize', () => {
+            const newDeviceType = this.isMobileOrTablet() ? 'mobile' : 'desktop';
+
+            if (newDeviceType !== this.currentDeviceType) {
+                this.currentDeviceType = newDeviceType;
+                this.listen();
+            }
+        });
     }
 }
 
