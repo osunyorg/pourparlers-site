@@ -9,4 +9,8 @@ items:
   target: mailto:bonjour@pourparlers.studio
   kind: url
   children: []
+- title: Mentions légales
+  target: "/mentions-legales/"
+  kind: page
+  children: []
 
