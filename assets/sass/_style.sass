@@ -255,10 +255,10 @@ footer#document-footer
         img
             width: 100%
         &.portrait
-            &, img
+            svg, img
                 max-height: pxToRem(200)
                 @include media-breakpoint-down(desktop)
-                    width: 50%
+                    width: columns(6)
         &.landscape
             max-width: columns(9)
             @include media-breakpoint-up(md)
