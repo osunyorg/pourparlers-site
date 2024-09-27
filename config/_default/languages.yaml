@@ -11,7 +11,7 @@ fr:
       linkedin: >-
         https://www.linkedin.com/company/studio-pourparlers/
       instagram: >-
-        https://www.instagram.com/url
+        https://www.instagram.com/studio_pourparlers/
   permalinks:
     posts: /journal/:year-:month-:day-:slug/
     projects: /realisations/:year-:slug/
