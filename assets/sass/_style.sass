@@ -394,8 +394,12 @@ footer#document-footer
                                     left: 100%
                         &:first-child::after
                             left: offset(1)
+                            @include media-breakpoint-up(xxl)
+                                left: calc(#{columns(1)} + #{space(5)})
                         &:last-child::before
                             right: offset(1)
+                            @include media-breakpoint-up(xxl)
+                                right: calc(#{columns(1)} + #{space(5)})
                 + ul
                     justify-content: space-around
                     margin-top: space(25)
