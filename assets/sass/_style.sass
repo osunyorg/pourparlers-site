@@ -34,6 +34,21 @@ body:not(.page__home)
         background: $yellow
         color: black
 
+// links with pencil line
+@mixin sketch-underline
+    &::after
+        content: ''
+        background:
+            image: url('/assets/images/decorations/line_04_black.png')
+            size: cover
+            position: center
+        height: pxToRem(18)
+        width: 100%
+        @include media-breakpoint-up(desktop)
+            bottom: -8px
+            left: 0
+            position: absolute
+
 // Layout
 .pages__section
     .blocks
@@ -72,22 +87,13 @@ header#document-header
             padding: $spacing-1 $spacing-2
             a
                 padding: 0
+                position: relative
+                &:hover
+                    @include sketch-underline
             &:last-child
                 padding-right: 0
         .active
-            position: relative
-            &::after
-                content: ''
-                background:
-                    image: url('/assets/images/decorations/line_04_black.png')
-                    size: cover
-                    position: center
-                height: pxToRem(18)
-                width: 100%
-                @include media-breakpoint-up(desktop)
-                    bottom: -8px
-                    left: 0
-                    position: absolute
+            @include sketch-underline
     > nav
         .header-button
             span:first-child
@@ -238,6 +244,15 @@ footer#document-footer
         &, &.footer-social.site-links
             li + li
                 margin-top: 0
+        @include media-breakpoint-up(desktop)
+            &.nav-social > li a, 
+            &.footer-social.site-links a
+                position: relative
+                &:hover
+                    @include sketch-underline
+                    &::after
+                        display: block
+                        bottom: -(pxToRem(12))
     .footer-banner
         display: flex
         justify-content: center
@@ -254,6 +269,7 @@ footer#document-footer
                 position: absolute
                 a
                     line-height: 1
+                    text-decoration: none
             .nav-social
                 left: var(--grid-gutter)
                 li:nth-child(2)::after
