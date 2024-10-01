@@ -13,9 +13,10 @@ fr:
       instagram: >-
         https://www.instagram.com/studio_pourparlers/
   permalinks:
-    posts: /journal/:year-:month-:day-:slug/
     projects: /realisations/:year-:slug/
     projects_categories: /realisations/:slug/
+    posts: /journal/:year-:month-:day-:slug/
+    posts_categories: /journal/:slug/
   taxonomies:
     administrator: administrators
     author: authors
