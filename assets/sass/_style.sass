@@ -312,6 +312,10 @@ footer#document-footer
     @include media-breakpoint-down(desktop)
         .footer-expertises
             font-size: $body-size-desktop
+            @include media-breakpoint-up(md)
+                width: 40%
+                li:nth-child(even)
+                    max-width: 17ch
             li
                 + li
                     margin-top: space(25) !important
@@ -337,12 +341,16 @@ footer#document-footer
                         left: var(--column-width)
                         top: space(18)
                         transform: rotate(34.51deg)
+                        @include media-breakpoint-up(md)
+                            left: 0
                 &:nth-child(even)
                     &::after
                         content: ''
                         right: 0
                         top: space(24)
                         transform: rotate(-34.51deg)
+                        @include media-breakpoint-up(md)
+                            right: 5%
             ul:nth-child(2)
                 display: flex
                 flex-direction: column-reverse
