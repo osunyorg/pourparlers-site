@@ -206,21 +206,26 @@ header#document-header
             margin-top: 0
             mix-blend-mode: multiply
             position: absolute
+            width: 100%
             + .block-chapter
                 margin-top: 0
             .block-content
-                width: columns(9)
+                width: columns(5)
+                figure
+                    width: 100%
             @include media-breakpoint-down(desktop)
                 top: space(78)
                 .block-content
-                    margin: auto
+                    margin: -$spacing-3 calc(var(--grid-gutter) + var(--column-width))
+                    width: auto
             @include media-breakpoint-up(desktop)
-                left: 0
                 top: space(60)
                 z-index: 0
                 .block-content
                     padding-left: 0
-                    width: columns(5)
+                    // margin-right: columns(7)
+                    picture
+                        max-width: 100%
         .blocks > *:not(.block-image)
             position: relative
             z-index: 1
@@ -276,7 +281,6 @@ footer#document-footer
         justify-content: center
         gap: var(--grid-gutter)
         position: relative
-        width: 100%
         ul
             display: flex
             gap: var(--grid-gutter)
@@ -300,9 +304,10 @@ footer#document-footer
                         margin-left: 0
                         margin-right: $spacing-2
         @include media-breakpoint-down(desktop)
-            gap: $spacing-4
-            flex-direction: column
             align-items: center
+            flex-direction: column
+            gap: $spacing-4
+            width: 100%
             .footer-social
                 justify-content: space-between
                 width: 100%
