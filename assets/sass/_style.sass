@@ -414,8 +414,6 @@ footer#document-footer
                                 transform: rotate(-34.51deg)
                                 @include media-breakpoint-up(xxl)
                                     right: 82%
-                                @media screen and (min-width: 1400px)
-                                    right: 82%
                                 @media screen and (min-width: 1700px)
                                     right: 92%
                         &:not(:last-child)
@@ -425,7 +423,7 @@ footer#document-footer
                                 transform: rotate(34.51deg)
                                 @include media-breakpoint-up(xxl)
                                     left: 100%
-                                @media screen and (min-width: 1400px)
+                                @media screen and (min-width: 1450px)
                                     left: 78%
                                 @media screen and (min-width: 1700px)
                                     left: 85%
@@ -433,14 +431,22 @@ footer#document-footer
                             left: offset(1)
                             @include media-breakpoint-up(xxl)
                                 left: calc(#{columns(1)} + #{space(5)})
+                            @media screen and (min-device-width: 1400px) and (max-device-width: 1450px)
+                                left: calc(#{columns(1)} + #{space(6)})
+                            @media screen and (min-width: 1900px)
+                                left: 50%
                         &:last-child::before
                             right: offset(1)
                             @include media-breakpoint-up(xxl)
                                 right: calc(#{columns(1)} + #{space(5)})
+                            @media screen and (min-width: 1900px)
+                                right: 50%
                 + ul
                     justify-content: space-around
                     margin-top: space(25)
                     @include media-breakpoint-up(xxl)
+                        margin-top: space(30)
+                    @media screen and (min-width: 1700px)
                         margin-top: space(35)
 
 
