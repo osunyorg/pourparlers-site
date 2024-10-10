@@ -155,7 +155,7 @@ header#document-header
         .content
             align-items: baseline
             column-gap: var(--grid-gutter)
-            padding-top: $spacing-6
+            padding-top: 0
         .hero-text
             margin-bottom: $spacing-2
             margin-top: 0
@@ -164,11 +164,26 @@ header#document-header
             display: flex
             flex: 1
             flex-direction: column-reverse
+            picture
+                position: relative
+                &::after
+                    background:
+                        image: url('/assets/images/decorations/line_04_black.png')
+                        position: center
+                        repeat: no-repeat
+                        size: cover
+                    content: ''
+                    height: pxToRem(19)
+                    position: absolute
+                    width: 100%
+                    bottom: -$spacing-3
         @include media-breakpoint-down(desktop)
             padding-bottom: $spacing-4
             .hero-abstracts
                 figure
                     margin: 0
+            .lead
+                margin-top: $spacing-3
     .document-content
         .block-chapter
             background:
@@ -236,7 +251,7 @@ body:not(.page__home, .projects__section, .projects__page)
         body:not(.page__home, .projects__section, .posts__page) &
             .content
                 .hero-text
-                    margin-top: $spacing-6
+                    margin-top: $spacing-5
 
 // Footer
 footer#document-footer
@@ -291,6 +306,9 @@ footer#document-footer
             .footer-social
                 justify-content: space-between
                 width: 100%
+            .nav-social
+                display: block
+                text-align: center
             .calligram
                 order: -1
     .calligram
@@ -302,11 +320,11 @@ footer#document-footer
                 @include media-breakpoint-down(desktop)
                     width: columns(6)
         &.landscape
-            max-width: columns(9)
+            width: columns(9)
             @include media-breakpoint-up(md)
-                max-width: columns(3)
+                width: columns(3)
             @include media-breakpoint-up(xl)
-                max-width: columns(4)
+                width: calc(#{columns(3)} + #{var(--grid-gutter)})
             @include media-breakpoint-down(desktop)
                 width: 100%
     @include media-breakpoint-down(desktop)
@@ -315,7 +333,7 @@ footer#document-footer
             @include media-breakpoint-up(md)
                 width: 40%
                 li:nth-child(even)
-                    max-width: 17ch
+                    width: 17ch
             li
                 + li
                     margin-top: space(25) !important
@@ -395,7 +413,11 @@ footer#document-footer
                                 right: calc(100% - #{$spacing-3})
                                 transform: rotate(-34.51deg)
                                 @include media-breakpoint-up(xxl)
-                                    right: 100%
+                                    right: 82%
+                                @media screen and (min-width: 1400px)
+                                    right: 82%
+                                @media screen and (min-width: 1700px)
+                                    right: 92%
                         &:not(:last-child)
                             &::after
                                 content: ''
@@ -403,6 +425,10 @@ footer#document-footer
                                 transform: rotate(34.51deg)
                                 @include media-breakpoint-up(xxl)
                                     left: 100%
+                                @media screen and (min-width: 1400px)
+                                    left: 78%
+                                @media screen and (min-width: 1700px)
+                                    left: 85%
                         &:first-child::after
                             left: offset(1)
                             @include media-breakpoint-up(xxl)
@@ -497,26 +523,29 @@ footer#document-footer
             &::after
                 content: ''
                 background:
-                    image: url('/assets/images/decorations/studio-line.png')
+                    image: url('/assets/images/decorations/line_05_white.png')
                     position: center
                     repeat: no-repeat
-                    size: contain
-                height: pxToRem(147)
+                    size: cover
+                height: pxToRem(16)
                 position: absolute
-                width: pxToRem(16)
                 left: 50%
-                transform: translateX(-50%)
-                top: 100%
+                top: 200%
+                margin-top: space(10)
+                transform: translateX(-50%) rotate(90deg)
+                width: pxToRem(180)
     @include media-breakpoint-down(desktop)
         .hero
             padding-bottom: 0
-            margin-bottom: space(9)
+            margin-bottom: $spacing-4
             h1::after
-                height: 152px
-                top: 110%
+                top: 180%
+                height: pxToRem(20)
+                width: pxToRem(160)
         .block-gallery--grid 
             padding-bottom: 0
             padding-top: 0 !important
+            margin-bottom: $spacing-4
             figure
                 max-width: columns(4)
         .block-chapter--accent_background
@@ -532,17 +561,21 @@ footer#document-footer
             padding: 0 !important
             margin: 0 !important
             .hero-text
-                margin-top: var(--header-height)
-                padding-top: $spacing-4
+                // margin-top: var(--header-height)
+                // padding-top: $spacing-4
 
 // Projects
 .projects__section
     main
         margin-top: var(--header-height)
         .hero
+            padding-top: $spacing-5
             .content
                 .hero-text
                     margin-top: 0
+                    @include media-breakpoint-down(desktop)
+                        h1
+                            text-align: center
         .container
             max-width: unset
             width: auto
@@ -586,7 +619,7 @@ footer#document-footer
                             font-size: pxToRem(75)
             .document-content
                 flex: 1
-                padding-top: $spacing-6
+                padding-top: space(19)
                 > .container
                     padding-left: 0
                 .project
