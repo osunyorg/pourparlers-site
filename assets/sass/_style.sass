@@ -3,24 +3,16 @@
 .projects__page
     main
         background-color: $orange
-    footer .calligram svg
-        fill: $orange
 .posts__section,
 .posts__page,
     main
         background-color: $green
-.posts__section,
-.posts__page
-    footer .calligram svg
-        fill: $green
 .page__home,
 .persons__section
     main
         --color-text: var(--color-accent)
         color: var(--color-text)
         background-color: $blue
-    footer .calligram svg
-        fill: $blue
 
 body:not(.page__home) 
     .media,
@@ -157,7 +149,6 @@ header#document-header
             column-gap: var(--grid-gutter)
             padding-top: 0
         .hero-text
-            margin-bottom: $spacing-2
             margin-top: 0
             width: auto
         .hero-abstracts
@@ -182,8 +173,10 @@ header#document-header
             .hero-abstracts
                 figure
                     margin: 0
+            .hero-text
+                margin-bottom: $spacing-3
             .lead
-                margin-top: $spacing-3
+                margin-top: calc(#{$spacing-4} - #{$spacing-1})
     .document-content
         .block-chapter
             background:
@@ -319,11 +312,9 @@ footer#document-footer
     .calligram
         img
             width: 100%
-        &.portrait
-            svg, img
+        &.portrait 
+            img
                 max-height: pxToRem(200)
-                @include media-breakpoint-down(desktop)
-                    width: columns(6)
         &.landscape
             width: columns(9)
             @include media-breakpoint-up(md)
@@ -332,6 +323,10 @@ footer#document-footer
                 width: calc(#{columns(3)} + #{var(--grid-gutter)})
             @include media-breakpoint-down(desktop)
                 width: 100%
+        @include media-breakpoint-down(desktop)
+            margin-top: 0
+            img
+                width: columns(5)
     @include media-breakpoint-down(desktop)
         .footer-expertises
             font-size: $body-size-desktop
@@ -515,20 +510,6 @@ footer#document-footer
 
 // Studio
 .persons__section
-    .block-gallery--grid
-        margin-bottom: 4rem
-        min-height: unset
-        padding-bottom: 4rem
-        padding-top: var(--header-height) !important
-        .gallery
-            display: flex
-            justify-content: space-between
-        figure
-            max-width: pxToRem(192)
-            img
-                aspect-ratio: 1
-                object-fit: cover
-                object-position: top
     .hero
         h1
             position: relative
@@ -546,6 +527,20 @@ footer#document-footer
                 margin-top: space(10)
                 transform: translateX(-50%) rotate(90deg)
                 width: pxToRem(180)
+    .block-gallery--grid
+        margin-bottom: 4rem
+        min-height: unset
+        padding-bottom: 4rem
+        padding-top: var(--header-height) !important
+        .gallery
+            display: flex
+            justify-content: space-between
+        figure
+            max-width: pxToRem(192)
+            img
+                aspect-ratio: 1
+                object-fit: cover
+                object-position: top
     @include media-breakpoint-down(desktop)
         .hero
             padding-bottom: 0
@@ -567,12 +562,17 @@ footer#document-footer
         main
             padding-top: var(--header-height)
             .block-gallery--grid
+                margin-bottom: 0
                 padding-bottom: 0
+                .gallery
+                    padding-top: $spacing-5
         .hero
             position: absolute
             padding: 0 !important
             margin: 0 !important
-
+            h1::after
+                top: 270%
+                width: pxToRem(200)
 // Projects
 .projects__section
     main

@@ -11,14 +11,6 @@ class PageCalligram {
             { url: "/assets/images/calligrammes/calligramme-3.svg", orientation: "landscape" },
             { url: "/assets/images/calligrammes/calligramme-4.svg", orientation: "landscape" }
         ];
-        this.mobileDeviceImages = [
-            { url: "/assets/images/totems/totem-1.svg", orientation: "landscape" },
-            { url: "/assets/images/totems/totem-2.svg", orientation: "landscape" },
-            { url: "/assets/images/totems/totem-3.svg", orientation: "portrait" },
-            { url: "/assets/images/totems/totem-4.svg", orientation: "portrait" },
-            { url: "/assets/images/totems/totem-5.svg", orientation: "landscape" },
-            { url: "/assets/images/totems/totem-6.svg", orientation: "landscape" }
-        ];
         
         this.listen();
         this.resize(); 
@@ -30,29 +22,14 @@ class PageCalligram {
 
     listen () {
         if (this.isMobileOrTablet()) {
-            this.randomImage = Math.floor(Math.random() * this.mobileDeviceImages.length);
-            this.image = this.mobileDeviceImages[this.randomImage];
-            this.fetchAndInjectSvg(this.image.url);
+            this.image = '/assets/images/calligrammes/calligramme-2.svg';
+            this.imageElement.src = this.image;
         } 
         else {
             this.randomImage = Math.floor(Math.random() * this.images.length);
             this.image = this.images[this.randomImage];
             this.setImage();
         }
-    }
-
-    fetchAndInjectSvg(url) {
-        fetch(url)
-            .then(response => response.text())
-            .then(svgContent => {
-                this.injectSvg(svgContent);
-            })
-    }
-
-    injectSvg(svgContent) {
-        this.calligram.innerHTML = '';
-        this.calligram.innerHTML = svgContent;
-        this.calligram.className = 'calligram ' + this.image.orientation;
     }
 
     setImage () {
