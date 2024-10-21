@@ -28,7 +28,7 @@
       </div>
       <div class="hero-abstracts">
         {{ if $subtitle }}
-          <p {{ if $subtitle_is_summary }} class="lead" {{ end }}>{{ partial "PrepareHTML" $subtitle }}</p>
+          <div {{ if $subtitle_is_summary }} class="lead" {{ end }}>{{ partial "PrepareHTML" $subtitle }}</div>
         {{ end }}
         {{ if $description }}
           <p>{{ partial "PrepareHTML" .description }}</p>
