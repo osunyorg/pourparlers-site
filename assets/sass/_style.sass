@@ -632,6 +632,8 @@ footer#document-footer
                             pointer-events: none
                         .project-title::after
                             display: none
+                        .project-subtitle
+                            font-size: $body-size
                     &:hover
                         .project-content
                             .project-title 
@@ -647,9 +649,21 @@ footer#document-footer
             @include meta
         .media img
             aspect-ratio: 320/399
+        &-content
+            .project-title
+                line-height: 1
+                margin-bottom: 0
+            .project-subtitle
+                font-style: italic
     @include media-breakpoint-down(desktop)
-        .project-content .project-title
-            @include h2
+        .project-content 
+            .project-title
+                @include h2
+                margin-bottom: 0
+            hgroup,
+            h2
+                + div
+                    margin-top: $spacing-2
     @include media-breakpoint-up(desktop)
         &.projects--list
             .project        
