@@ -5,10 +5,18 @@
         background-color: $orange
     footer .calligram svg
         fill: $orange
+    @include media-breakpoint-down(desktop)
+        .toc-container,
+        .toc-cta
+            background-color: $orange
 .posts__section,
 .posts__page,
     main
         background-color: $green
+    @include media-breakpoint-down(desktop)
+        .toc-container,
+        .toc-cta
+            background-color: $green
 .posts__section,
 .posts__page
     footer .calligram svg
@@ -21,6 +29,12 @@
         background-color: $blue
     footer .calligram svg
         fill: $blue
+    @include media-breakpoint-down(desktop)
+        .toc-container,
+        .toc-cta
+            --color-text: var(--color-accent)
+            color: var(--color-text)
+            background-color: $blue
 
 body:not(.page__home) 
     .media,
@@ -133,6 +147,11 @@ header#document-header
                             &.active::after
                                 flex: 1
                                 margin-left: $spacing-3
+
+// TOC
+.toc-container
+    @include media-breakpoint-down(desktop)
+        @include h3
 
 // Home
 .page__home
@@ -725,20 +744,28 @@ footer#document-footer
                     img
                         aspect-ratio: 704/490
                         object-fit: cover
-    .post-infos 
-        > li:not(:first-child)
-            border: none
-            position: relative
-            &::before
-                content: ''
-                background:
-                    image: url('/assets/images/decorations/line_04_black.png')
-                    position: center
-                    size: cover
-                height: 18px
-                position: absolute
-                top: -9px
-                width: 100%
+    &:not(.full-width)
+        @include media-breakpoint-up(desktop)
+            .post-sidebar
+                .toc-container
+                    border-top: none
+                    margin-top: $spacing-3
+                .post-infos 
+                    > li
+                        border: none
+                        position: relative
+                        &::after
+                            content: ''
+                            background:
+                                image: url('/assets/images/decorations/line_04_black.png')
+                                position: center
+                                size: cover
+                            height: 18px
+                            position: absolute
+                            bottom: -9px
+                            width: 100%
+    .toc-container
+
     .chapter
         font-family: $heading-font-family
         line-height: $body-normal-line-height-desktop
