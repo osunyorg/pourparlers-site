@@ -5,12 +5,15 @@ items:
   target: "/studio/"
   kind: page
   children: []
+  file: content/fr/persons/_index.html
 - title: Réalisations
   target: "/realisations/"
   kind: page
   children: []
+  file: content/fr/projects/_index.html
 - title: Journal
   target: "/journal/"
   kind: page
   children: []
+  file: content/fr/posts/_index.html
 
