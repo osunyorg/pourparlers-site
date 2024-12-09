@@ -7,11 +7,19 @@ fr:
   languageCode: fr
   languageName: Français
   params:
-    social:
-      linkedin: >-
-        https://www.linkedin.com/company/studio-pourparlers/
-      instagram: >-
-        https://www.instagram.com/studio_pourparlers/
+    contact_details:
+      social_networks:
+        instagram:
+          label: >-
+            studio_pourparlers
+          value: >-
+            https://instagram.com/studio_pourparlers
+        linkedin:
+          label: >-
+            studio-pourparlers
+          value: >-
+            https://www.linkedin.com/company/studio-pourparlers/
+
   permalinks:
     projects: /realisations/:year-:slug/
     projects_categories: /realisations/:slug/
