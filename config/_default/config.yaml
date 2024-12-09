@@ -19,3 +19,6 @@ params:
       options:
         summary: false
         categories: false
+  home:
+    head:
+      title: site
