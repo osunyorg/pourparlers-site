@@ -611,10 +611,10 @@ footer#document-footer
             max-width: unset
             width: auto
         .projects
-            .project
+            li
                 border-bottom: 0
-                &:last-child
-                    margin-bottom: 0
+            .project
+                padding-bottom: $spacing-4
                 &::after
                     background:
                         image: url('/assets/images/decorations/line_04_black.png')
@@ -626,6 +626,7 @@ footer#document-footer
                     bottom: -9.5px
                     position: absolute
                 @include media-breakpoint-down(desktop)
+                    padding-bottom: 0
                     + .project
                         margin-top: $spacing-5
                     &::after
