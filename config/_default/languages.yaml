@@ -21,12 +21,6 @@ fr:
           value: >-
             https://www.linkedin.com/company/studio-pourparlers/
 
-  permalinks:
-    pages_categories: /:slug/
-    projects: /realisations/:year-:slug/
-    projects_categories: /realisations/:slug/
-    posts: /journal/:year-:month-:day-:slug/
-    posts_categories: /journal/:slug/
   taxonomies:
     administrator: administrators
     author: authors
