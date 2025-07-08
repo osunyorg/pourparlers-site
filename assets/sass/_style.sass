@@ -684,6 +684,9 @@ footer#document-footer
                 margin-bottom: 0
             .project-subtitle
                 font-style: italic
+            @include in-page-without-sidebar
+                .rich-text
+                    width: 100% !important
     @include media-breakpoint-down(desktop)
         .project-content 
             .project-title
