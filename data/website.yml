@@ -1,5 +1,0 @@
-default:
-  image:
-    id: 24a0e5d0-d4e8-4f1f-8b5b-d3d004045e34
-  shared_image:
-    id: 9045770e-c6f0-4362-9187-67e52f71e7e6
