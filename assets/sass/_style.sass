@@ -215,7 +215,6 @@ header#document-header
                 margin-top: calc(#{$spacing-4} - #{$spacing-1})
     .document-content
         .block-chapter
-            background:
             .rich-text a
                 position: relative
                 text-decoration: none
@@ -276,8 +275,11 @@ body:not(.page__home, .projects__section, .projects__page)
         .projects__section &
             margin-bottom: 0
     @include media-breakpoint-up(desktop)
-        .posts__section &
-            margin-bottom: $spacing-2
+        .posts__section &,
+        .projects__section &
+            padding-bottom: $spacing-2
+        .page__home &
+            margin-bottom: $spacing-4
         .breadcrumb-nav
             .breadcrumb
                 padding-right: 0
