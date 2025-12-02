@@ -6,7 +6,7 @@ params:
     position: content
   search:
     active: false
-  image_sizes:
+  components:
     design_system:
       lightbox:
         disabled: true
