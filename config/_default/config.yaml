@@ -7,9 +7,8 @@ params:
   search:
     active: false
   components:
-    design_system:
-      lightbox:
-        disabled: true
+    lightbox:
+      disabled: true
   projects:
     index:
       layout: list
