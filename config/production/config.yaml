@@ -7,6 +7,11 @@ osuny:
   website:
     id: ec4cef80-2cea-41b7-902a-a0df5cdc34ed
 
+## PARAMS
+params:
+  _merge: deep
+  plausible: "pourparlers.studio"
+
 ## LANGUAGE
 defaultContentLanguage: fr
 defaultContentLanguageInSubdir: false
