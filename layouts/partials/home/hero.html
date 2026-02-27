@@ -35,12 +35,11 @@
         {{ end }}
         {{ if .Params.image }}
           <!-- TODO Peut etre aligner la stucture des données avec les autres cas d'images -->
-          {{ partial "commons/image-figure.html" (dict
-            "image"    .Params.image
-            "sizes"    ( .Params.sizes | default site.Params.image_sizes._default.hero )
-            "lazy"      false
-            )
-          }}
+          {{ partial "commons/image/figure.html" (dict
+            "image" .Params.image
+            "sizes" ( .Params.sizes | default site.Params.image_sizes._default.hero )
+            "lazy" false
+          ) }}
         {{ end }}
       </div>
     </div>
