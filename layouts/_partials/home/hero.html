@@ -2,7 +2,7 @@
 {{ $subtitle := .Params.subtitle }}
 {{ $description := .Params.description }}
 {{ if .Params.image }}
-  {{ $direction = partial "GetImageDirection" .Params.image }}
+  {{ $direction = partial "commons/image/helpers/GetDirection" .Params.image }}
 {{ end }}
 
 {{ $summary := .Params.summary | safeHTML }}
