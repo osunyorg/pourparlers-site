@@ -24,14 +24,14 @@
   <div class="container">
     <div class="content">
       <div class="hero-text">
-        <h1 {{ $title_attribute }}>{{ partial "PrepareHTML" .Params.header_text }}</h1>
+        <h1 {{ $title_attribute }}>{{ safeHTML .Params.header_text }}</h1>
       </div>
       <div class="hero-abstracts">
         {{ if $subtitle }}
-          <div {{ if $subtitle_is_summary }} class="lead" {{ end }}>{{ partial "PrepareHTML" $subtitle }}</div>
+          <div {{ if $subtitle_is_summary }} class="lead" {{ end }}>{{ safeHTML $subtitle }}</div>
         {{ end }}
         {{ if $description }}
-          <p>{{ partial "PrepareHTML" .description }}</p>
+          <p>{{ safeHTML .description }}</p>
         {{ end }}
         {{ if .Params.image }}
           <!-- TODO Peut etre aligner la stucture des données avec les autres cas d'images -->
