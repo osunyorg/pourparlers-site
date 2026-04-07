@@ -64,6 +64,10 @@ body:not(.page__home)
             position: absolute
 
 // Layout
+.blocks
+    .block:first-child:is([class*=--accent_background], [class*=--alt_background], .block-timeline--horizontal, .block-pages--cards)
+        margin-top: 0
+    
 .pages__section
     .blocks
         font-family: $heading-font-family
