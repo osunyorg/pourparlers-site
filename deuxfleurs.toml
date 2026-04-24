@@ -15,34 +15,34 @@ for = ["**/*.png", "**/*.jpg", "**/*.jpeg", "**/*.gif", "**/*.webp"]
 Cache-Control = "max-age=31536000, no-transform, public"
 
 [[redirects]]
-from = "/equipe/"
+from = "/equipe/index.html"
 to = "/studio/"
 
 [[redirects]]
-from = "/realisations/2023-lacoste/"
+from = "/realisations/2023-lacoste/index.html"
 to = "/realisations/2024-lacoste/"
 
 [[redirects]]
-from = "/actualites/"
+from = "/actualites/index.html"
 to = "/journal/"
 
 [[redirects]]
-from = "/realisations/2024-chopard/"
+from = "/realisations/2024-chopard/index.html"
 to = "/realisations/2025-chopard/"
 
 [[redirects]]
-from = "/equipe/equipe-editoriale/"
+from = "/equipe/equipe-editoriale/index.html"
 to = "/studio/equipe-editoriale/"
 
 [[redirects]]
-from = "/projets/"
+from = "/projets/index.html"
 to = "/realisations/"
 
 [[redirects]]
-from = "/journal/2024-04-08-quest-ce-quune-analyse-semantique/"
+from = "/journal/2024-04-08-quest-ce-quune-analyse-semantique/index.html"
 to = "/journal/2024-11-08-quest-ce-quune-analyse-semantique/"
 
 [[redirects]]
-from = "/journal/2024-04-08-podcast-sur-les-dernieres-approches-dux-writing/"
+from = "/journal/2024-04-08-podcast-sur-les-dernieres-approches-dux-writing/index.html"
 to = "/journal/2024-10-02-podcast-sur-les-dernieres-approches-dux-writing/"
 
